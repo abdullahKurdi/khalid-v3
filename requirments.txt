@@ -1,0 +1,210 @@
+# AzzawiArt — Full Developer Requirements
+
+**Created:** 1 Oct 2025
+
+**Purpose:** Build a modern artist portfolio website inspired by [https://www.azzawiart.com/](https://www.azzawiart.com/), maintaining the same structure and content while applying a modern, sleek design. This document provides detailed developer requirements, including functional, technical, and design specifications, ready for implementation.
+
+---
+
+## 1. Project Overview
+
+* **Goal:** Create a bilingual (Arabic/English) artist portfolio site showcasing artworks, exhibitions, news, and media.
+* **Design:** Follow the same visual structure and layout as AzzawiArt, but with a modern, clean, responsive, and user-friendly design.
+* **Performance:** Fast-loading pages, optimized images, mobile-first, SEO-friendly.
+
+---
+
+## 2. Site Structure & Pages
+
+### Public Pages
+
+1. **Home (هوم)**
+
+   * Hero carousel with featured artworks.
+   * Featured exhibitions section.
+   * Short artist bio snippet.
+   * Latest news / media highlights.
+   * Newsletter signup and social media links.
+
+2. **About (اباوت)**
+
+   * Full artist biography in AR/EN.
+   * CV and key publications.
+   * Press mentions / awards.
+   * Downloadable PDF CV.
+
+3. **Paintings (بينتنج)**
+
+   * Categories:
+
+     * روثكو
+     * حروفيات
+     * اعمال وطنية - أشعار
+     * جداريات
+     * ورقيات
+   * Filterable by category, decade, and tags.
+   * Artwork thumbnails with hover effect.
+
+4. **Artwork Detail**
+
+   * High-resolution image gallery with lightbox.
+   * Title, year, medium, dimensions, description.
+   * Related artworks section.
+   * Social share buttons.
+
+5. **Exhibitions (معارض فنية)**
+
+   * List of exhibitions (chronological or filterable).
+   * Exhibition detail: name, description, images (single or gallery), venue, dates, curator.
+
+6. **News & Media (اخبار واعلام)**
+
+   * Articles and press releases.
+   * Each item: title, date, source, image, external link.
+
+7. **Contact (التواصل)**
+
+   * Contact form: name, email, subject, message.
+   * Anti-spam measures (honeypot or reCAPTCHA).
+   * Map (optional) and social media links.
+
+8. **Search**
+
+   * Site-wide search with suggestions.
+   * Search across artworks, exhibitions, and news.
+
+9. **Language Switcher**
+
+   * Persistent toggle (AR/EN).
+   * Automatic RTL adjustment for Arabic.
+
+### Admin Panel
+
+* **Dashboard:** Overview of recent uploads, messages, news drafts.
+* **CRUD Operations:**
+
+  * Artworks: add/edit/delete, assign categories/tags/decade, image upload.
+  * Exhibitions: add/edit/delete, multi-image upload, curator info, dates, venue.
+  * News/Media: add/edit/delete articles, embed videos, upload press PDFs.
+  * Pages: manage static pages (About, Contact).
+* **Media Manager:** Bulk upload, auto-resize images, WebP support, alt/caption management.
+* **Users & Roles:** Admin, editor, curator with role-based permissions.
+* **SEO Management:** Title, description, Open Graph/Twitter Cards, canonical URLs.
+* **Translations:** Edit content in AR/EN.
+
+---
+
+## 3. Functional Requirements
+
+* High-resolution artwork display with lazy-loading.
+* Artwork filters by category, decade, and tags.
+* Responsive grid layout and lightbox gallery.
+* Exhibition pages with multiple images and descriptions.
+* News & media management with image/video support.
+* Contact form with backend storage and admin notifications.
+* Bilingual content support with proper RTL handling.
+* Search functionality across artworks, exhibitions, and news.
+* SEO and accessibility compliance (alt text, ARIA attributes, semantic HTML).
+
+---
+
+## 4. Technical Requirements
+
+* **Backend:** Laravel 11
+* **Frontend:** vue 3
+* **Database:** MySQL 
+
+* **Queues & Caching:** Redis, Laravel Horizon
+* **Image Processing:** Spatie Media Library / Intervention Image
+
+
+
+---
+
+## 5. Database Schema (Core Tables)
+
+* `artists`: id, name, slug, bio_en, bio_ar, birth_year, death_year, created_at, updated_at
+* `artworks`: id, artist_id, title_en, title_ar, slug, year, medium_en, medium_ar, dimensions, description_en, description_ar, category_id, decade, visibility, created_at
+* `artwork_images`: id, artwork_id, file_path, order, caption_en, caption_ar, alt_en, alt_ar, width, height
+* `categories`: id, name_en, name_ar, slug
+* `exhibitions`: id, title_en, title_ar, slug, type, start_date, end_date, venue_en, venue_ar, curator, description_en, description_ar
+* `exhibition_images`: id, exhibition_id, file_path, caption_en, caption_ar, order
+* `news`: id, title_en, title_ar, slug, body_en, body_ar, published_at, external_url, source_name
+* `pages`: id, key, title_en, title_ar, body_en, body_ar
+* `users`, `roles`, `permissions`
+* `contact_messages`: id, name, email, subject, message, is_read, created_at
+
+---
+
+## 6. Frontend Components
+
+* Layout: Header (nav, language toggle), Footer (contact/social)
+* ArtworkCard, ArtworkGallery, LightboxViewer, FilterBar
+* ExhibitionCard, NewsCard, Pagination
+* Admin Components: MediaUploader, RichTextEditor, TranslationEditor, SEOEditor
+
+---
+
+## 7. Design Guidelines
+
+* Follow AzzawiArt.com structure but modernize UI with clean lines, minimalistic design, and mobile-first responsiveness.
+* Use high-quality Arabic fonts (Cairo or Noto Kufi Arabic) and complementary English sans-serif.
+* Maintain color palette similar to the original but adjust for modern aesthetic.
+* Consistent spacing, hover effects, and transitions for interactivity.
+* RTL support for Arabic with proper layout mirroring.
+
+---
+
+## 8. Non-functional Requirements
+
+* Fast load times: CDN, lazy loading, optimized images
+* Scalability: pagination, caching, efficient DB queries
+* Security: CSRF, XSS protection, secure uploads
+* Backup & recovery: automated DB & media backups
+* Accessibility: WCAG 2.1 compliance
+* Internationalization: proper date/number formatting
+
+---
+
+## 9. Developer Tasks / Epics
+
+### Project Setup
+
+* Initialize Laravel + Vue project.
+* Configure DB, S3/Storage, Redis.
+* Set up CI/CD pipeline.
+
+### Models & Admin
+
+* Create models/migrations for artworks, exhibitions, news, pages.
+* Build admin dashboard with CRUD.
+* Implement media manager and image processing.
+
+### Frontend Pages
+
+* Home, About, Paintings (filters), Artwork Detail, Exhibitions, News, Contact.
+* Implement i18n and RTL support.
+
+### Performance & SEO
+
+* Optimize images, caching.
+* Implement structured data and SEO fields.
+
+### Launch
+
+* Configure CDN, SSL, sitemap, analytics.
+
+---
+
+## 10. Acceptance Criteria
+
+* Admin can manage artworks, exhibitions, news in both languages.
+* Public site matches AzzawiArt structure with modern design.
+* Fully responsive, mobile-first, RTL compatible.
+* Contact form stores messages and notifies admin.
+* Images optimized, pages fast-loading, SEO-ready.
+* Search works for artworks, exhibitions, and news.
+
+---
+
+This document serves as the complete reference for the developer to build the site exactly like AzzawiArt.com with a modernized design and all user-provided Arabic content integrated.

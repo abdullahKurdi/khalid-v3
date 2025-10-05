@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Traditional Calligraphy Exhibitions - Khalid Mohammed Al-Mutlaq | خالد محمد المطلق</title>
+  <meta name="description" content="Explore the exhibition history of Khalid Mohammed Al-Mutlaq, master of traditional Arabic calligraphy. A journey through exhibitions showcasing classical Thuluth, Naskh, and Quranic calligraphy preserving Islamic artistic heritage." />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/exhibitions.css">
+</head>
+<body>
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="logo-container">
+      <a href="home.html" class="logo" title="Khalid Al-Mutlaq Home">KM</a>
+      
+      <!-- Main Horizontal Navigation -->
+      <nav class="main-nav">
+        <div class="nav-item"><a href="home.html">Home</a></div>
+        <div class="nav-item"><a href="about.html">About</a></div>
+        <div class="nav-item has-dropdown">
+          <a href="painting.html">Artworks</a>
+          <div class="dropdown-menu">
+            <a href="painting.html#2000s">2000s</a>
+            <a href="painting.html#2010s">2010s</a>
+            <a href="painting.html#2020s">2020s</a>
+        </div>
+        </div>
+        <div class="nav-item"><a href="exhibitions.html"  class="active">Exhibitions</a></div>
+        <div class="nav-item"><a href="media.html">Media</a></div>
+        <div class="nav-item"><a href="contact.html">Contact</a></div>
+      </nav>
+    </div>
+    
+    <!-- Top Right Controls -->
+    <div class="top-controls">
+      <div class="search-box">
+        <input type="text" placeholder="Search artworks..." id="searchInput" aria-label="Search artworks">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </div>
+
+      <div class="view-toggle" onclick="toggleView()" title="Toggle artwork grid view" aria-label="Toggle grid view">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+      </div>
+
+      <div class="language-switch">
+        <button class="lang-btn active" onclick="switchLanguage('en')" data-lang="en" aria-label="Switch to English">EN</button>
+        <button class="lang-btn" onclick="switchLanguage('ar')" data-lang="ar" aria-label="التبديل إلى العربية">ع</button>
+      </div>
+
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open mobile menu">☰</button>
+    </div>
+  </header>
+
+  
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileMenu()"></div>
+  
+  <!-- Mobile Navigation Sidebar -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+      <a href="home.html" class="logo">KM</a>
+      <button class="mobile-nav-close" onclick="closeMobileMenu()">×</button>
+    </div>
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-item">
+        <a href="home.html" class="active" onclick="closeMobileMenu()">Home</a>
+      </div>
+      <div class="mobile-nav-item">
+        <a href="about.html" onclick="closeMobileMenu()">About</a>
+      </div>
+      <div class="mobile-nav-item">
+        <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+          Artworks
+        </button>
+        <div class="mobile-dropdown-content">
+          <a href="painting.html#2000s" onclick="closeMobileMenu()">2000s</a>
+          <a href="painting.html#2010s" onclick="closeMobileMenu()">2010s</a>
+          <a href="painting.html#2020s" onclick="closeMobileMenu()">2020s</a>
+        </div>
+      </div>
+      <div class="mobile-nav-item">
+        <a href="exhibitions.html" onclick="closeMobileMenu()">Exhibitions</a>
+      </div>
+      <div class="mobile-nav-item">
+        <a href="media.html" onclick="closeMobileMenu()">Media</a>
+      </div>
+      <div class="mobile-nav-item">
+        <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <h1 data-en="Traditional Calligraphy Exhibitions" data-ar="معارض الخط العربي التقليدي">Traditional Calligraphy Exhibitions</h1>
+      <p data-en="A journey through exhibitions showcasing classical Arabic calligraphy, preserving the sacred art of Islamic calligraphy through traditional Thuluth, Naskh, and Quranic scripts" data-ar="رحلة عبر المعارض التي تعرض الخط العربي الكلاسيكي، والحفاظ على الفن المقدس للخط الإسلامي من خلال خطوط الثلث والنسخ والقرآنية التقليدية">A journey through exhibitions showcasing classical Arabic calligraphy, preserving the sacred art of Islamic calligraphy through traditional Thuluth, Naskh, and Quranic scripts</p>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-number">20+</div>
+          <div class="stat-label" data-en="Exhibitions" data-ar="المعارض">Exhibitions</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label" data-en="Years Experience" data-ar="سنوات الخبرة">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label" data-en="Artworks Created" data-ar="الأعمال المنشأة">Artworks Created</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5+</div>
+          <div class="stat-label" data-en="Awards Won" data-ar="الجوائز المحرزة">Awards Won</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Exhibitions Section -->
+    <section class="exhibitions-section">
+      <h2 class="section-title" data-en="Exhibition History" data-ar="تاريخ المعارض">Exhibition History</h2>
+      
+      <div class="exhibition-card">
+        <div class="exhibition-image">
+          <img src="imgs/art-vision-gallery.jpg" alt="Art Vision Gallery">
+        </div>
+        <div class="exhibition-info">
+          <span class="exhibition-year">2022 - Present</span>
+          <h3 class="exhibition-title">Art Vision Gallery</h3>
+          <div class="exhibition-venue">Riyadh, Saudi Arabia</div>
+          <p class="exhibition-description" data-en="In 2022, artist Khalid Al-Mutlaq returned to active participation with the opening of Art Vision Gallery and began producing diverse artistic masterpieces of his letter works, continuing to this day." data-ar="وفي عام 2022م عاد الفنان خالد المطلق للمشاركة بشكل فعلي مع افتتاح جاليري آرت فجن وبدأ بإنتاج تحف فنية متنوعة من أعماله الحروفية ليستمر فيها إلى الآن.">In 2022, artist Khalid Al-Mutlaq returned to active participation with the opening of Art Vision Gallery and began producing diverse artistic masterpieces of his letter works, continuing to this day.</p>
+          <div class="exhibition-tags">
+            <span class="tag">Featured Artist</span>
+            <span class="tag">Contemporary</span>
+            <span class="tag">Letter-Based Art</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="exhibition-card">
+        <div class="exhibition-image">
+          <img src="imgs/london-workshop.jpg" alt="London Workshop">
+        </div>
+        <div class="exhibition-info">
+          <span class="exhibition-year">2019</span>
+          <h3 class="exhibition-title">Arabic Calligraphy Workshop</h3>
+          <div class="exhibition-venue">London, United Kingdom</div>
+          <p class="exhibition-description" data-en="Conducted an Arabic calligraphy workshop in London as part of the Ministry of Culture's activities in 2019, representing Saudi cultural heritage on the international stage." data-ar="أقام ورشة للخط العربي في لندن من ضمن فعاليات وزارة الثقافة 2019م، ممثلاً التراث الثقافي السعودي على المسرح الدولي.">Conducted an Arabic calligraphy workshop in London as part of the Ministry of Culture's activities in 2019, representing Saudi cultural heritage on the international stage.</p>
+          <div class="exhibition-tags">
+            <span class="tag">International</span>
+            <span class="tag">Workshop</span>
+            <span class="tag">Cultural Diplomacy</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="exhibition-card">
+        <div class="exhibition-image">
+          <img src="imgs/national-youth-exhibitions.jpg" alt="National Youth Exhibitions">
+        </div>
+        <div class="exhibition-info">
+          <span class="exhibition-year">2000s</span>
+          <h3 class="exhibition-title">National Youth Exhibitions</h3>
+          <div class="exhibition-venue">General Presidency for Youth Welfare</div>
+          <p class="exhibition-description">Participated in multiple national youth exhibitions, showcasing works that blend Arabic calligraphy with visual narrative, reflecting Saudi identity and contemporary expression.</p>
+          <div class="exhibition-tags">
+            <span class="tag">National</span>
+            <span class="tag">Youth Art</span>
+            <span class="tag">Saudi Identity</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="exhibition-card">
+        <div class="exhibition-image">
+          <img src="imgs/al-muftaha-residency.jpg" alt="Al-Muftaha Residency">
+        </div>
+        <div class="exhibition-info">
+          <span class="exhibition-year">1997-2000</span>
+          <h3 class="exhibition-title">Al-Muftaha Village Artist Residency</h3>
+          <div class="exhibition-venue">Al-Muftaha Village, Abha</div>
+          <p class="exhibition-description">Resident artist at the iconic cultural village, participating in workshops, collaborative projects, and summer exhibitions alongside prominent Saudi visual artists, establishing foundation for professional career.</p>
+          <div class="exhibition-tags">
+            <span class="tag">Artist Residency</span>
+            <span class="tag">Group Exhibitions</span>
+            <span class="tag">Cultural Heritage</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Awards Section -->
+    <section class="awards-section">
+      <div class="awards-container">
+        <h2 class="section-title">Awards & Recognition</h2>
+        
+        <div class="award-item">
+          <div class="award-title" data-en="🏆 First Place - International Falcons Club Competition 2022" data-ar="🏆 المركز الأول - مسابقة نادي الصقور الدولي 2022">🏆 First Place - International Falcons Club Competition 2022</div>
+          <div class="award-details" data-en="Won first place in the International Falcons Club competition in Riyadh for 2022, demonstrating excellence in Arabic calligraphy and letter art." data-ar="فاز بالمركز الأول في مسابقة نادي الصقور الدولي بالرياض لعام 2022، مما يوضح التميز في الخط العربي وفن الحروفيات.">Won first place in the International Falcons Club competition in Riyadh for 2022, demonstrating excellence in Arabic calligraphy and letter art.</div>
+        </div>
+        
+        <div class="award-item">
+          <div class="award-title">🎓 Sotheby's Institute of Art Certificate</div>
+          <div class="award-details">Professional evaluation certificate from Sotheby's Institute of Art in collaboration with Misk Art Institute, providing international recognition of artistic expertise and professional standards</div>
+        </div>
+        
+        <div class="award-item">
+          <div class="award-title" data-en="🌍 Ministry of Culture Workshop Leader 2019" data-ar="🌍 قائد ورشة وزارة الثقافة 2019">🌍 Ministry of Culture Workshop Leader 2019</div>
+          <div class="award-details" data-en="Conducted an Arabic calligraphy workshop in London as part of the Ministry of Culture's activities in 2019, representing Saudi cultural heritage internationally." data-ar="أقام ورشة للخط العربي في لندن من ضمن فعاليات وزارة الثقافة 2019م، ممثلاً التراث الثقافي السعودي دولياً.">Conducted an Arabic calligraphy workshop in London as part of the Ministry of Culture's activities in 2019, representing Saudi cultural heritage internationally.</div>
+        </div>
+        
+        <div class="award-item">
+          <div class="award-title">🎨 Featured Artist Status</div>
+          <div class="award-details">Currently featured artist at Art Vision Gallery, showcasing letter-based contemporary works that bridge tradition and modernity</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Khalid Al-Mutlaq. All rights reserved.</p>
+      <p class="footer-links">
+        <a href="https://www.artsy.net/artist/khalid-al-mutlaq" target="_blank">Artsy</a> •
+        <a href="https://saudipress.com/saudi-visual-artist-turns-passion-for-arabic-calligraphy-into-icons-of-beauty" target="_blank">Saudi Press</a> •
+        <a href="https://www.instagram.com/p/DEu0dXrytn2/" target="_blank">Instagram</a>
+      </p>
+    </footer>
+  </main>
+  
+  <script src="js/common.js"></script>
+  <script src="js/exhibitions.js"></script>
+</body>
+</html>
+
