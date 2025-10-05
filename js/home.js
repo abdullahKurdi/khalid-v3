@@ -332,6 +332,11 @@ let currentSlide = 0;
 const slides = document.querySelectorAll('.hero-slide');
 const indicatorsContainer = document.getElementById('heroIndicators');
 
+// Check if device is mobile
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
 // Create indicators
 slides.forEach((slide, index) => {
   const indicator = document.createElement('div');
@@ -361,11 +366,17 @@ function showSlide(index) {
 }
 
 function nextSlide() {
+  // Disable arrow navigation on mobile
+  if (isMobile()) return;
+  
   currentSlide = (currentSlide + 1) % slides.length;
   showSlide(currentSlide);
 }
 
 function prevSlide() {
+  // Disable arrow navigation on mobile
+  if (isMobile()) return;
+  
   currentSlide = (currentSlide - 1 + slides.length) % slides.length;
   showSlide(currentSlide);
 }
@@ -375,18 +386,64 @@ function goToSlide(index) {
   showSlide(currentSlide);
 }
 
-// Auto-advance slides every 5 seconds
-let sliderInterval = setInterval(nextSlide, 5000);
+// Auto-advance slides every 5 seconds (only on desktop)
+let sliderInterval = setInterval(() => {
+  if (!isMobile()) {
+    nextSlide();
+  }
+}, 5000);
 
-// Pause on hover
+// Pause on hover (desktop only)
 const heroSection = document.querySelector('.hero-section');
 heroSection.addEventListener('mouseenter', () => {
-  clearInterval(sliderInterval);
+  if (!isMobile()) {
+    clearInterval(sliderInterval);
+  }
 });
 
 heroSection.addEventListener('mouseleave', () => {
-  sliderInterval = setInterval(nextSlide, 5000);
+  if (!isMobile()) {
+    sliderInterval = setInterval(() => {
+      if (!isMobile()) {
+        nextSlide();
+      }
+    }, 5000);
+  }
 });
+
+// Touch/swipe functionality for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+heroSection.addEventListener('touchstart', (e) => {
+  if (isMobile()) {
+    touchStartX = e.changedTouches[0].screenX;
+  }
+});
+
+heroSection.addEventListener('touchend', (e) => {
+  if (isMobile()) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }
+});
+
+function handleSwipe() {
+  const swipeThreshold = 50;
+  const diff = touchStartX - touchEndX;
+  
+  if (Math.abs(diff) > swipeThreshold) {
+    if (diff > 0) {
+      // Swipe left - next slide
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    } else {
+      // Swipe right - previous slide
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  }
+}
 
 // Toggle sidebar functionality
 function toggleSidebar(event) {
@@ -476,6 +533,20 @@ if (searchInput) {
     });
   });
 }
+
+// Handle window resize to update mobile state
+window.addEventListener('resize', () => {
+  // Update slider behavior based on screen size
+  if (isMobile()) {
+    clearInterval(sliderInterval);
+  } else {
+    sliderInterval = setInterval(() => {
+      if (!isMobile()) {
+        nextSlide();
+      }
+    }, 5000);
+  }
+});
 
 // Sidebar navigation active state
 const sidebarLinks = document.querySelectorAll('.sidebar-nav a');

@@ -436,6 +436,98 @@ footer {
 
 /* Responsive Modal */
 @media (max-width: 768px) {
+  /* Mobile hero section adjustments */
+  .hero-section {
+    height: calc(100vh - var(--header-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Hide hero arrows on mobile */
+  .hero-arrows {
+    display: none;
+  }
+  
+  /* Center images on mobile */
+  .hero-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .hero-slide img {
+    max-width: 90vw;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  /* Ensure proper centering for different image sizes */
+  .hero-slide-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Ensure hero slider container is properly centered */
+  .hero-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  /* Touch-friendly indicators on mobile */
+  .hero-indicators {
+    bottom: 20px;
+    gap: 8px;
+  }
+  
+  .hero-indicator {
+    width: 12px;
+    height: 12px;
+  }
+  
+  /* Adjust slide positioning for mobile */
+  .hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+  }
+  
+  .hero-slide.prev {
+    transform: translate(-150%, -50%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .hero-slide.next {
+    transform: translate(50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  
   .modal-content-wrapper {
     grid-template-columns: 1fr;
     max-height: 95vh;
@@ -461,7 +553,87 @@ footer {
   .modal-nav-btn {
     width: 40px;
     height: 40px;
-    font-size: 16px;
+  }
+}
+
+/* Additional mobile centering for smaller screens */
+@media (max-width: 480px) {
+  .hero-slide {
+    padding: 10px;
+  }
+  
+  .hero-slide img {
+    max-width: 95vw;
+    max-height: 75vh;
+  }
+  
+  .hero-indicators {
+    bottom: 15px;
+  }
+  
+  .hero-indicator {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Hide gallery cards on mobile */
+  .gallery {
+    display: none;
+  }
+  
+  .content-section {
+    padding: 20px 0;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Fix mobile layout and scrolling */
+  .main-layout {
+    flex-direction: column;
+  }
+  
+  .left-sidebar {
+    display: none;
+  }
+  
+  .main-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Ensure proper mobile scrolling */
+  body {
+    overflow-x: hidden;
+  }
+  
+  .hero-section {
+    overflow: hidden;
+  }
+  
+  /* RTL mobile fixes */
+  [dir='rtl'] .hero-section {
+    direction: ltr; /* Keep hero section LTR for proper image display */
+  }
+  
+  [dir='rtl'] .hero-slide {
+    direction: ltr;
+  }
+  
+  [dir='rtl'] .hero-slide img {
+    direction: ltr;
+  }
+  
+  /* Ensure proper RTL text alignment without layout changes */
+  [dir='rtl'] .section-title {
+    text-align: center;
+  }
+  
+  [dir='rtl'] .content-section {
+    direction: rtl;
   }
 }
 

@@ -820,67 +820,9 @@ a {
   }
 }
 
-/* RTL Support */
+/* RTL Support - Keep English layout, only text direction */
 [dir='rtl'] {
   direction: rtl;
-}
-
-[dir='rtl'] .top-header {
-  flex-direction: row-reverse;
-}
-
-[dir='rtl'] .logo-container {
-  flex-direction: row-reverse;
-}
-
-[dir='rtl'] .main-nav {
-  margin-left: 0;
-  margin-right: 50px;
-}
-
-[dir='rtl'] .main-nav a::before {
-  left: 50%;
-  right: auto;
-}
-
-[dir='rtl'] .search-box input {
-  padding: 11px 20px 11px 45px;
-}
-
-[dir='rtl'] .search-icon {
-  right: auto;
-  left: 18px;
-}
-
-[dir='rtl'] .top-controls {
-  flex-direction: row-reverse;
-}
-
-[dir='rtl'] .dropdown-menu a:hover {
-  padding-left: 20px;
-  padding-right: 25px;
-}
-
-[dir='rtl'] .left-sidebar {
-  border-right: none;
-  border-left: 1px solid var(--border);
-  left: auto;
-  right: -200px;
-}
-
-[dir='rtl'] .left-sidebar.show {
-  right: 0;
-  left: auto;
-}
-
-[dir='rtl'] .main-content.with-sidebar {
-  margin-left: 0;
-  margin-right: var(--sidebar-width);
-}
-
-[dir='rtl'] .hero-arrows {
-  right: auto;
-  left: 60px;
 }
 
 [dir='rtl'] .gallery-caption {
@@ -899,30 +841,6 @@ a {
   text-align: right;
 }
 
-[dir='rtl'] .modal-close-btn {
-  right: auto;
-  left: 20px;
-}
-
-[dir='rtl'] .modal-nav {
-  flex-direction: row-reverse;
-}
-
-[dir='rtl'] .mobile-nav {
-  right: auto;
-  left: -100%;
-}
-
-[dir='rtl'] .mobile-nav.show {
-  left: 0;
-  right: auto;
-}
-
-[dir='rtl'] .mobile-nav-close {
-  margin-left: 0;
-  margin-right: auto;
-}
-
 [dir='rtl'] .mobile-dropdown-toggle {
   text-align: right;
 }
@@ -937,44 +855,15 @@ a {
   padding-right: 20px;
 }
 
-[dir='rtl'] .dropdown-menu {
-  left: auto;
-  right: 0;
-}
-
-[dir='rtl'] .nav-item.has-dropdown > a::after {
-  margin-left: 0;
-  margin-right: 6px;
-}
-
-[dir='rtl'] .language-switch {
-  flex-direction: row-reverse;
-}
-
-[dir='rtl'] .view-toggle svg {
-  transform: scaleX(-1);
-}
-
 @media (max-width: 768px) {
-  [dir='rtl'] .top-header {
-    padding: 0 20px;
-    flex-direction: row-reverse;
-  }
-  
-  [dir='rtl'] .logo-container {
-    flex-direction: row-reverse;
-  }
-  
+  /* Keep English layout for mobile - only text direction changes */
   [dir='rtl'] .search-box input {
-    padding: 8px 16px 8px 35px;
+    text-align: right;
+    direction: rtl;
   }
   
   [dir='rtl'] .search-icon {
     left: 14px;
-  }
-  
-  [dir='rtl'] .top-controls {
-    flex-direction: row-reverse;
   }
 }
 
