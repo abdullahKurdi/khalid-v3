@@ -1,238 +1,86 @@
 // Home Page JavaScript
 
-// Sample artwork data with detailed information
+// Simplified artwork data with titles only
 const artworks = [
-  { 
-    title: {
-      en: 'Sacred Heritage',
-      ar: 'التراث المقدس'
-    },
-    year: '2023', 
-    category: {
-      en: 'Calligraphic Art',
-      ar: 'فن الخط'
-    },
-    medium: {
-      en: 'Ink and gold leaf on canvas',
-      ar: 'حبر وورق ذهبي على قماش'
-    },
-    dimensions: '120 x 90 cm',
-    description: {
-      en: 'A contemporary interpretation of Arabic calligraphy that celebrates the sacred heritage of Islamic art, blending traditional Thuluth script with modern visual elements.',
-      ar: 'تفسير معاصر للخط العربي يحتفل بالتراث المقدس للفن الإسلامي، يدمج خط الثلث التقليدي مع العناصر البصرية الحديثة.'
-    },
-    src: 'imgs/sacred-heritage.jpg' 
+  {
+    title: { en: 'Calligraphic Forms – Mural', ar: 'حروفيات - جدارية' },
+    src: 'imgs/home/first.jpg'
   },
-  { 
-    title: {
-      en: 'Rhythm of Letters',
-      ar: 'إيقاع الحروف'
-    },
-    year: '2022', 
-    category: {
-      en: 'Letter-Based Art',
-      ar: 'فن قائم على الحروف'
-    },
-    medium: {
-      en: 'Mixed media on canvas',
-      ar: 'وسائط مختلطة على قماش'
-    },
-    dimensions: '150 x 100 cm',
-    description: {
-      en: 'Exploring the dynamic movement inherent in Arabic letterforms, this piece captures the rhythm and flow of traditional calligraphy in a contemporary visual language.',
-      ar: 'استكشاف الحركة الديناميكية الكامنة في أشكال الحروف العربية، تلتقط هذه القطعة إيقاع وتدفق الخط التقليدي في لغة بصرية معاصرة.'
-    },
-    src: 'imgs/rhythm-letters.jpg' 
+  {
+    title: { en: 'Sovereignty is to God, then to Abdulaziz – Mural', ar: 'الحكم لله ثم لعبدالعزيز - جدارية' },
+    src: 'imgs/home/second.jpg'
   },
-  { 
-    title: {
-      en: 'Golden Proportions',
-      ar: 'النسب الذهبية'
-    },
-    year: '2021', 
-    category: {
-      en: 'Traditional Calligraphy',
-      ar: 'الخط التقليدي'
-    },
-    medium: {
-      en: 'Traditional ink on handmade paper',
-      ar: 'حبر تقليدي على ورق مصنوع يدوياً'
-    },
-    dimensions: '80 x 60 cm',
-    description: {
-      en: 'Classical Arabic calligraphy following the traditional rules and golden proportions, demonstrating mastery of historic techniques passed down through generations.',
-      ar: 'خط عربي كلاسيكي يتبع القواعد التقليدية والنسب الذهبية، يظهر إتقان التقنيات التاريخية المنقولة عبر الأجيال.'
-    },
-    src: 'imgs/golden-proportions.jpg' 
+  {
+    title: { en: 'Black and White Calligraphic Forms – Artwork', ar: 'حروفيات الأبيض والأسود - عمل فني' },
+    src: 'imgs/home/third.jpg'
   },
-  { 
-    title: {
-      en: 'Contemporary Echoes',
-      ar: 'أصداء معاصرة'
-    },
-    year: '2023', 
-    category: {
-      en: 'Visual Art',
-      ar: 'الفن البصري'
-    },
-    medium: {
-      en: 'Acrylic and mixed media',
-      ar: 'أكريليك ووسائط مختلطة'
-    },
-    dimensions: '200 x 150 cm',
-    description: {
-      en: 'A bold exploration of Arabic letters in contemporary context, using mixed media techniques to create texture, depth, and visual dialogue between tradition and modernity.',
-      ar: 'استكشاف جريء للحروف العربية في السياق المعاصر، باستخدام تقنيات الوسائط المختلطة لخلق نسيج وعمق وحوار بصري بين التقليد والحداثة.'
-    },
-    src: 'imgs/contemporary-echoes.jpg' 
+  {
+    title: { en: 'Poetic Composition – Artwork', ar: 'قصيدة شعرية - عمل فني' },
+    src: 'imgs/home/fourth.jpg'
   },
- 
-  { 
-    title: {
-      en: 'Abstract Letters',
-      ar: 'حروف مجردة'
-    },
-    year: '2021', 
-    category: {
-      en: 'Contemporary Art',
-      ar: 'الفن المعاصر'
-    },
-    medium: {
-      en: 'Acrylic on canvas',
-      ar: 'أكريليك على قماش'
-    },
-    dimensions: '120 x 120 cm',
-    description: {
-      en: 'Deconstructed Arabic letters reimagined as abstract visual elements, maintaining their essence while embracing freedom of contemporary artistic expression.',
-      ar: 'حروف عربية منزوعة البناء معاد تصورها كعناصر بصرية مجردة، تحافظ على جوهرها بينما تتبنى حرية التعبير الفني المعاصر.'
-    },
-    src: 'imgs/abstract-letters.jpg' 
+  {
+    title: { en: 'Calligraphic Forms in Silver and Royal Blue – Mural', ar: 'حروفيات بالفضة و الأزرق الملكي - جدارية' },
+    src: 'imgs/home/sixth.jpg'
   },
-  { 
-    title: {
-      en: 'Heritage Reimagined',
-      ar: 'التراث المعاد تصوره'
-    },
-    year: '2023', 
-    category: {
-      en: 'Digital Art',
-      ar: 'الفن الرقمي'
-    },
-    medium: {
-      en: 'Digital art print on canvas',
-      ar: 'طباعة فنية رقمية على قماش'
-    },
-    dimensions: '180 x 120 cm',
-    description: {
-      en: 'Bridging traditional calligraphy with digital techniques to create a piece that honors Saudi heritage while embracing technological innovation and future possibilities.',
-      ar: 'ربط الخط التقليدي بالتقنيات الرقمية لإنشاء قطعة تكرم التراث السعودي بينما تتبنى الابتكار التكنولوجي والإمكانيات المستقبلية.'
-    },
-    src: 'imgs/heritage-reimagined.jpg' 
+  {
+    title: { en: 'Collaboration with Saint Louis – AlUla Festival', ar: 'تعاون مع سانت لويس - مهرجان العلا' },
+    src: ['imgs/home/WhatsApp Image 2025-10-13 at 8.27.20 PM.jpeg']
   },
-  { 
-    title: {
-      en: 'Poetic Forms',
-      ar: 'أشكال شعرية'
-    },
-    year: '2020', 
-    category: {
-      en: 'Traditional Art',
-      ar: 'الفن التقليدي'
-    },
-    medium: {
-      en: 'Ink on handmade paper',
-      ar: 'حبر على ورق مصنوع يدوياً'
-    },
-    dimensions: '90 x 60 cm',
-    description: {
-      en: 'Classical calligraphy featuring Arabic poetry, executed with traditional techniques and materials that reflect the deep cultural roots of the art form.',
-      ar: 'خط كلاسيكي يضم الشعر العربي، منفذ بتقنيات ومواد تقليدية تعكس الجذور الثقافية العميقة لهذا الفن.'
-    },
-    src: 'imgs/poetic-forms.jpg' 
+  {
+    title: { en: 'Words of His Highness the Founder Sheikh Jassim bin Mohammed bin Thani - Special Artwork', ar: 'كلمات سمو الشيخ المؤسس جاسم بن محمد بن ثاني - عمل خاص' },
+    src: 'imgs/home/eighth.jpg'
   },
-  { 
-    title: {
-      en: 'Vibrant Voices',
-      ar: 'أصوات نابضة بالحياة'
-    },
-    year: '2022', 
-    category: {
-      en: 'Mixed Media',
-      ar: 'وسائط مختلطة'
-    },
-    medium: {
-      en: 'Mixed media and gold leaf',
-      ar: 'وسائط مختلطة وورق ذهبي'
-    },
-    dimensions: '140 x 100 cm',
-    description: {
-      en: 'Colorful visual interpretation where Arabic letters dance across the canvas, celebrating the linguistic beauty and cultural significance of the Arabic language.',
-      ar: 'تفسير بصري ملون حيث ترقص الحروف العربية عبر القماش، تحتفل بالجمال اللغوي والأهمية الثقافية للغة العربية.'
-    },
-    src: 'imgs/vibrant-voices.jpg' 
+  {
+    title: { en: 'Abstraction – Artwork', ar: 'اختزال - عمل فني' },
+    src: 'imgs/home/ninth.jpg'
   },
-  { 
-    title: {
-      en: 'Cultural Dialogue',
-      ar: 'حوار ثقافي'
-    },
-    year: '2021', 
-    category: {
-      en: 'Letter-Based Art',
-      ar: 'فن قائم على الحروف'
-    },
-    medium: {
-      en: 'Ink and acrylic on canvas',
-      ar: 'حبر وأكريليك على قماش'
-    },
-    dimensions: '130 x 95 cm',
-    description: {
-      en: 'Creating dialogue between traditional calligraphic forms and contemporary visual language, reflecting the evolution of Saudi artistic expression.',
-      ar: 'خلق حوار بين الأشكال الخطية التقليدية واللغة البصرية المعاصرة، يعكس تطور التعبير الفني السعودي.'
-    },
-    src: 'imgs/cultural-dialogue.jpg' 
+  {
+    title: { en: 'His Highness Prince Abdullah bin Musaad bin Abdulrahman Al Saud (may he rest in peace) – Special Artwork', ar: 'سمو الأمير عبدالله بن مساعد بن عبدالرحمن ال سعود رحمه الله - عمل خاص' },
+    src: 'imgs/home/tenth.jpg'
   },
-  { 
-    title: {
-      en: 'Modern Legacy',
-      ar: 'التراث الحديث'
-    },
-    year: '2023', 
-    category: {
-      en: 'Contemporary Calligraphy',
-      ar: 'الخط المعاصر'
-    },
-    medium: {
-      en: 'Mixed media',
-      ar: 'وسائط مختلطة'
-    },
-    dimensions: '160 x 110 cm',
-    description: {
-      en: 'Honoring the legacy of Arabic calligraphy while pushing boundaries with modern materials and techniques, creating works that speak to contemporary audiences.',
-      ar: 'تكريم تراث الخط العربي بينما ندفع الحدود بالمواد والتقنيات الحديثة، نخلق أعمالاً تتحدث للجماهير المعاصرة.'
-    },
-    src: 'imgs/modern-legacy.jpg' 
+  {
+    title: { en: 'Mural – Ministry of Culture (Special Artwork)', ar: 'جدارية - وزارة الثقافة "عمل خاص"' },
+    src: 'imgs/home/eleventh.jpg'
   },
-  { 
-    title: {
-      en: 'Timeless Beauty',
-      ar: 'الجمال الخالد'
-    },
-    year: '2022', 
-    category: {
-      en: 'Calligraphic Art',
-      ar: 'فن الخط'
-    },
-    medium: {
-      en: 'Ink and gold on canvas',
-      ar: 'حبر وذهب على قماش'
-    },
-    dimensions: '110 x 85 cm',
-    description: {
-      en: 'Celebrating the timeless beauty of Arabic calligraphy through carefully composed letterforms that reflect both tradition and artistic innovation.',
-      ar: 'الاحتفال بالجمال الخالد للخط العربي من خلال أشكال الحروف المكونة بعناية التي تعكس كل من التقليد والابتكار الفني.'
-    },
-    src: 'imgs/timeless-beauty.jpg' 
+  {
+    title: { en: 'Modern Legacy', ar: 'مدارات - عمل خاص' },
+    src: 'imgs/home/twelveth.jpg'
+  },
+  {
+    title: { en: 'Contemporary Works – Artwork', ar: 'أعمال معاصرة - عمل فني' },
+    src: 'imgs/home/therteenth.jpg'
+  },
+  {
+    title: { en: 'Contemporary Works – Artwork', ar: 'أعمال معاصرة - عمل فني' },
+    src: 'imgs/home/fourteenth.jpg'
+  },
+  {
+    title: { en: 'Contemporary Works – Artwork', ar: 'أعمال معاصرة - عمل فني' },
+    src: 'imgs/home/fifteenth.jpg'
+  },
+  {
+    title: { en: 'Contemporary Works – Artwork', ar: 'أعمال معاصرة - عمل فني' },
+    src: 'imgs/home/sixteenth.jpg'
+  },
+  {
+    title: { en: 'Contemporary Works – Artwork', ar: 'أعمال معاصرة - عمل فني' },
+    src: 'imgs/home/seventeenth.jpg'
+  },
+  {
+    title: { en: 'Contemporary Works – Artwork', ar: 'أعمال معاصرة - عمل فني' },
+    src: 'imgs/home/eighteenth.jpg'
+  },
+  {
+    title: { en: 'Contemporary Works – Artwork', ar: 'أعمال معاصرة - عمل فني' },
+    src: 'imgs/home/nineteenth.jpg'
+  },
+  {
+    title: { en: 'Contemporary Works – Artwork', ar: 'أعمال معاصرة - عمل فني' },
+    src: 'imgs/home/twenteth.jpg'
+  },
+  {
+    title: { en: 'Contemporary Works – Artwork', ar: 'أعمال معاصرة - عمل فني' },
+    src: 'imgs/home/twentyfirst.jpg'
   }
 ];
 
@@ -250,24 +98,27 @@ artworks.forEach((artwork, index) => {
   const item = document.createElement('a');
   item.className = 'gallery-item';
   item.href = '#';
-  item.setAttribute('data-category', artwork.category[getCurrentLanguage()]);
   item.setAttribute('data-index', index);
   item.onclick = (e) => {
     e.preventDefault();
     openGalleryModal(index);
   };
-  
+
   const currentLang = getCurrentLanguage();
+
+  const imageContent = Array.isArray(artwork.src)
+    ? `<div class="scrollable-images" dir="ltr">${artwork.src.map(s => `<img src="${s}" alt="${artwork.title[currentLang]}" loading="lazy">`).join('')}</div>`
+    : `<img src="${artwork.src}" alt="${artwork.title[currentLang]}" loading="lazy">`;
+
   item.innerHTML = `
     <div class="gallery-item-inner">
-      <img src="${artwork.src}" alt="${artwork.title[currentLang]}" loading="lazy">
+      ${imageContent}
     </div>
     <div class="gallery-caption">
       <div class="caption-title" data-en="${artwork.title.en}" data-ar="${artwork.title.ar}">${artwork.title[currentLang]}</div>
-      <div class="caption-year">${artwork.year}</div>
     </div>
   `;
-  
+
   gallery.appendChild(item);
 });
 
@@ -292,19 +143,13 @@ function navigateGallery(direction) {
 function updateModalContent() {
   const artwork = artworks[currentModalIndex];
   const currentLang = getCurrentLanguage();
-  
-  document.getElementById('modalArtworkImage').src = artwork.src;
+
+  const modalSrc = Array.isArray(artwork.src) ? artwork.src[0] : artwork.src;
+  document.getElementById('modalArtworkImage').src = modalSrc;
   document.getElementById('modalArtworkImage').alt = artwork.title[currentLang];
   document.getElementById('modalArtworkTitle').textContent = artwork.title[currentLang];
   document.getElementById('modalArtworkTitle').setAttribute('data-en', artwork.title.en);
   document.getElementById('modalArtworkTitle').setAttribute('data-ar', artwork.title.ar);
-  document.getElementById('modalArtworkYear').textContent = artwork.year;
-  document.getElementById('modalArtworkDescription').textContent = artwork.description[currentLang];
-  document.getElementById('modalArtworkDescription').setAttribute('data-en', artwork.description.en);
-  document.getElementById('modalArtworkDescription').setAttribute('data-ar', artwork.description.ar);
-  document.getElementById('modalArtworkCategory').textContent = artwork.category[currentLang];
-  document.getElementById('modalArtworkMedium').textContent = artwork.medium[currentLang];
-  document.getElementById('modalArtworkDimensions').textContent = artwork.dimensions;
 }
 
 // Close modal on overlay click
@@ -359,7 +204,7 @@ function showSlide(index) {
       slide.classList.add('next');
     }
   });
-  
+
   indicators.forEach((indicator, i) => {
     indicator.classList.toggle('active', i === index);
   });
@@ -368,7 +213,7 @@ function showSlide(index) {
 function nextSlide() {
   // Disable arrow navigation on mobile
   if (isMobile()) return;
-  
+
   currentSlide = (currentSlide + 1) % slides.length;
   showSlide(currentSlide);
 }
@@ -376,7 +221,7 @@ function nextSlide() {
 function prevSlide() {
   // Disable arrow navigation on mobile
   if (isMobile()) return;
-  
+
   currentSlide = (currentSlide - 1 + slides.length) % slides.length;
   showSlide(currentSlide);
 }
@@ -431,7 +276,7 @@ heroSection.addEventListener('touchend', (e) => {
 function handleSwipe() {
   const swipeThreshold = 50;
   const diff = touchStartX - touchEndX;
-  
+
   if (Math.abs(diff) > swipeThreshold) {
     if (diff > 0) {
       // Swipe left - next slide
@@ -450,7 +295,7 @@ function toggleSidebar(event) {
   if (event) event.preventDefault();
   const sidebar = document.getElementById('leftSidebar');
   const mainContent = document.getElementById('mainContent');
-  
+
   sidebar.classList.toggle('show');
   mainContent.classList.toggle('with-sidebar');
 }
@@ -461,9 +306,9 @@ function toggleView() {
   const gallery = document.getElementById('gallery');
   const viewToggle = document.querySelector('.view-toggle');
   isGridView = !isGridView;
-  
+
   viewToggle.classList.toggle('active');
-  
+
   if (isGridView) {
     gallery.style.gridTemplateColumns = 'repeat(auto-fill, minmax(320px, 1fr))';
     viewToggle.innerHTML = `
@@ -490,24 +335,23 @@ function toggleView() {
 function updateGalleryLanguage() {
   const currentLang = getCurrentLanguage();
   const galleryItems = document.querySelectorAll('.gallery-item');
-  
+
   galleryItems.forEach((item, index) => {
     const artwork = artworks[index];
     const titleElement = item.querySelector('.caption-title');
-    const imgElement = item.querySelector('img');
-    
+    const imgElements = item.querySelectorAll('img');
+
     // Update title
     titleElement.textContent = artwork.title[currentLang];
     titleElement.setAttribute('data-en', artwork.title.en);
     titleElement.setAttribute('data-ar', artwork.title.ar);
-    
-    // Update image alt text
-    imgElement.alt = artwork.title[currentLang];
-    
-    // Update category attribute
-    item.setAttribute('data-category', artwork.category[currentLang]);
+
+    // Update image alt texts
+    imgElements.forEach(img => {
+      img.alt = artwork.title[currentLang];
+    });
   });
-  
+
   // Update modal if open
   if (document.getElementById('galleryModal').classList.contains('active')) {
     updateModalContent();
@@ -517,15 +361,14 @@ function updateGalleryLanguage() {
 // Search functionality
 const searchInput = document.getElementById('searchInput');
 if (searchInput) {
-  searchInput.addEventListener('input', function(e) {
+  searchInput.addEventListener('input', function (e) {
     const searchTerm = e.target.value.toLowerCase();
     const galleryItems = document.querySelectorAll('.gallery-item');
-    
+
     galleryItems.forEach(item => {
       const title = item.querySelector('.caption-title').textContent.toLowerCase();
-      const year = item.querySelector('.caption-year').textContent.toLowerCase();
-      
-      if (title.includes(searchTerm) || year.includes(searchTerm)) {
+
+      if (title.includes(searchTerm)) {
         item.style.display = 'block';
       } else {
         item.style.display = 'none';
@@ -551,9 +394,8 @@ window.addEventListener('resize', () => {
 // Sidebar navigation active state
 const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
 sidebarLinks.forEach(link => {
-  link.addEventListener('click', function(e) {
+  link.addEventListener('click', function (e) {
     sidebarLinks.forEach(l => l.classList.remove('active'));
     this.classList.add('active');
   });
 });
-

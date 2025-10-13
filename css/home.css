@@ -779,5 +779,21 @@ footer {
   .content-section {
     padding: 15px 0;
   }
+  .scrollable-images {
+  display: flex;
+  flex-direction: row;
+  direction: ltr;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.scrollable-images img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+  scroll-snap-align: start;
+}
 }
 

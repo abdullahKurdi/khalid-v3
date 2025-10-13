@@ -1,7 +1,7 @@
 /* ===========================================================
    Khalid Al-Mutlaq Website Script
    Includes: Language Switcher, Navigation, UI Interactions
-   Updated: Oct 2025
+   Updated: Oct 2025 (with static i18n opt-out support)
 =========================================================== */
 
 // ========== Translations ==========
@@ -10,21 +10,17 @@ const translations = {
     // Navigation
     nav_home: 'Home',
     nav_about: 'About',
-    nav_artworks: 'Traditional Calligraphy',
     nav_exhibitions: 'Exhibitions',
     nav_media: 'Media',
     nav_contact: 'Contact',
 
-    // Dropdown
-    artworks_calligraphy: 'Thuluth Script',
-    artworks_paintings: 'Naskh Script',
-    artworks_sculptures: 'Quranic Calligraphy',
+
 
     // Mobile Menu
     mobile_artworks: 'Traditional Calligraphy',
 
-    // Common
-    section_title: 'Traditional Calligraphy Masterpieces',
+    // Common (fallbacks; pages may override via data-en/data-ar)
+    section_title: 'My Journey and Contemporary Art through Letters and Colors.',
     search_placeholder: 'Search artworks...',
     footer_text: '© 2025 Khalid Al-Mutlaq. All rights reserved.',
     view_toggle_title: 'Toggle grid view',
@@ -57,21 +53,17 @@ const translations = {
     // Navigation
     nav_home: 'الرئيسية',
     nav_about: 'نبذة عني',
-    nav_artworks: 'الخط العربي التقليدي',
+
     nav_exhibitions: 'المعارض',
     nav_media: 'الإعلام',
     nav_contact: 'تواصل معي',
 
-    // Dropdown
-    artworks_calligraphy: 'خط الثلث',
-    artworks_paintings: 'خط النسخ',
-    artworks_sculptures: 'الخط القرآني',
 
     // Mobile Menu
     mobile_artworks: 'الخط العربي التقليدي',
 
-    // Common
-    section_title: 'تحف الخط العربي التقليدي',
+    // Common (fallbacks; pages may override via data-en/data-ar)
+    section_title: 'المدارس الفنية المعاصرة في أعمالي الفنية وتطبيقاتها',
     search_placeholder: 'البحث في الأعمال الفنية...',
     footer_text: '© ٢٠٢٥ خالد المطلق. جميع الحقوق محفوظة.',
     view_toggle_title: 'تبديل عرض الشبكة',
@@ -132,7 +124,7 @@ function toggleMobileDropdown(button) {
 
   document.querySelectorAll('.mobile-dropdown-toggle').forEach(btn => {
     btn.classList.remove('open');
-    btn.nextElementSibling.classList.remove('show');
+    if (btn.nextElementSibling) btn.nextElementSibling.classList.remove('show');
   });
 
   if (!isOpen) {
@@ -159,27 +151,23 @@ function applyLanguage(lang) {
   document.documentElement.setAttribute('dir', rtl ? 'rtl' : 'ltr');
   document.documentElement.setAttribute('lang', lang);
 
-  // Update all elements with data-en and data-ar attributes
-  document.querySelectorAll('[data-en][data-ar]').forEach(element => {
+  // Update all elements with data-en and data-ar attributes, EXCEPT elements marked static.
+  document.querySelectorAll('[data-en][data-ar]:not([data-static])').forEach(element => {
     const enText = element.getAttribute('data-en');
     const arText = element.getAttribute('data-ar');
-    element.textContent = lang === 'ar' ? arText : enText;
+    element.textContent = rtl ? arText : enText;
   });
 
   // Update navigation
   const mainNav = document.querySelectorAll('.main-nav > .nav-item > a');
   if (mainNav[0]) mainNav[0].textContent = t.nav_home;
   if (mainNav[1]) mainNav[1].textContent = t.nav_about;
-  if (mainNav[2]) mainNav[2].textContent = t.nav_artworks;
-  if (mainNav[3]) mainNav[3].textContent = t.nav_exhibitions;
-  if (mainNav[4]) mainNav[4].textContent = t.nav_media;
-  if (mainNav[5]) mainNav[5].textContent = t.nav_contact;
 
-  // Dropdown items
-  const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
-  if (dropdownLinks[0]) dropdownLinks[0].textContent = t.artworks_calligraphy;
-  if (dropdownLinks[1]) dropdownLinks[1].textContent = t.artworks_paintings;
-  if (dropdownLinks[2]) dropdownLinks[2].textContent = t.artworks_sculptures;
+  if (mainNav[2]) mainNav[2].textContent = t.nav_exhibitions;
+  if (mainNav[3]) mainNav[3].textContent = t.nav_media;
+  if (mainNav[4]) mainNav[4].textContent = t.nav_contact;
+
+
 
   // Mobile nav
   const mobileLinks = document.querySelectorAll('.mobile-nav-item > a');
@@ -205,9 +193,15 @@ function applyLanguage(lang) {
   const viewToggle = document.querySelector('.view-toggle');
   if (viewToggle) viewToggle.setAttribute('title', t.view_toggle_title);
 
-  // Section title
-  const sectionTitle = document.querySelector('.section-title');
-  if (sectionTitle) sectionTitle.textContent = t.section_title;
+  // Section title (fallback only): don't override if element has its own data-en/ar OR is marked static
+  const possibleSectionTitles = document.querySelectorAll('.section-title');
+  possibleSectionTitles.forEach(el => {
+    const isStatic = el.hasAttribute('data-static');
+    const hasOwnI18n = el.hasAttribute('data-en') && el.hasAttribute('data-ar');
+    if (!isStatic && !hasOwnI18n) {
+      el.textContent = t.section_title;
+    }
+  });
 
   // Footer text
   const footerText = document.querySelector('footer p');
@@ -223,7 +217,7 @@ function applyLanguage(lang) {
 
   // Page-specific (handled separately)
   if (typeof updatePageSpecific === 'function') updatePageSpecific(t);
-  
+
   // Update gallery language if function exists (for home page)
   if (typeof updateGalleryLanguage === 'function') {
     updateGalleryLanguage();
@@ -231,7 +225,9 @@ function applyLanguage(lang) {
 }
 
 // ========== Page-Specific Override ==========
-function updatePageSpecific() { /* individual pages can override this */ }
+function updatePageSpecific() {
+  /* individual pages can override this */
+}
 
 // ========== Initialization ==========
 document.addEventListener('DOMContentLoaded', () => {
