@@ -28,7 +28,7 @@
       source: "Al-Jazirah",
       date: "2025-01-24",
       url: "https://www.al-jazirah.com/2025/20250124/fm1.htm",
-      image: "imgs/media/aljazirah-20250124-fm1.jpg",
+      image: "imgs/home/newphoto.jpeg",
     },
     // {
     //   id: 3,
