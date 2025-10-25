@@ -1,79 +1,323 @@
-// Contact Page JavaScript
+<!doctype html>
+<html lang="en" dir="ltr">
 
-// Initialize page when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('Contact page loaded');
-  
-  // Initialize contact form functionality
-  initializeContactForm();
-});
+<head>
+  <!-- Basic Meta Tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-function initializeContactForm() {
-  // Get the contact form
-  const contactForm = document.getElementById('contactForm');
-  
-  if (contactForm) {
-    // Add form validation and submission handling
-    contactForm.addEventListener('submit', handleSubmit);
+  <!-- Primary Meta Tags -->
+  <title>Contact - Khalid Mohammed Al-Mutlaq | Traditional Arabic Calligraphy | خالد محمد المطلق</title>
+  <meta name="title" content="Contact Khalid Mohammed Al-Mutlaq | Traditional Arabic Calligraphy" />
+  <meta name="description"
+    content="Contact Khalid Mohammed Al-Mutlaq in Riyadh for traditional Arabic calligraphy commissions, Quranic calligraphy, classical Thuluth and Naskh scripts. Phone: +966-552-020-187 | Email: khaledm1981@gmail.com" />
+  <meta name="keywords"
+    content="contact Khalid Al-Mutlaq, commission Arabic calligraphy, Riyadh calligrapher, traditional calligraphy commission, Saudi calligrapher contact, Islamic calligraphy services, Arabic art commission, Thuluth calligraphy Riyadh, خالد المطلق اتصال" />
+  <meta name="author" content="Khalid Mohammed Al-Mutlaq" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://khalidalmutlaq.com/contact.html" />
+
+  <!-- Language & Geo Tags -->
+  <meta name="language" content="English, Arabic" />
+  <meta name="geo.region" content="SA-01" />
+  <meta name="geo.placename" content="Riyadh, Saudi Arabia" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://khalidalmutlaq.com/contact.html" />
+  <meta property="og:site_name" content="Khalid Mohammed Al-Mutlaq" />
+  <meta property="og:title" content="Contact Khalid Al-Mutlaq | Traditional Arabic Calligraphy" />
+  <meta property="og:description"
+    content="Get in touch for traditional Arabic calligraphy commissions, Quranic calligraphy, and classical Islamic art in Riyadh, Saudi Arabia." />
+  <meta property="og:image" content="https://khalidalmutlaq.com/imgs/home-slider/khaild.jpeg" />
+  <meta property="og:image:secure_url" content="https://khalidalmutlaq.com/imgs/home-slider/khaild.jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Contact Khalid Al-Mutlaq" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_SA" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://khalidalmutlaq.com/contact.html" />
+  <meta name="twitter:title" content="Contact Khalid Al-Mutlaq | Traditional Arabic Calligraphy" />
+  <meta name="twitter:description"
+    content="Contact for traditional Arabic calligraphy commissions in Riyadh, Saudi Arabia." />
+  <meta name="twitter:image" content="https://khalidalmutlaq.com/imgs/home-slider/khaild.jpeg" />
+  <meta name="twitter:creator" content="@khaledalmatlaq" />
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#d6704f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Khalid Al-Mutlaq" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Khalid Mohammed Al-Mutlaq",
+    "description": "Contact for traditional Arabic calligraphy commissions",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Khalid Mohammed Al-Mutlaq",
+      "telephone": "00966552020187"
+      "email": "km.almutlaq07@gmail.com"
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Riyadh",
+        "addressRegion": "Riyadh",
+        "addressCountry": "SA"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+966-552-020-187",
+        "contactType": "Customer Service",
+        "areaServed": "SA",
+        "availableLanguage": ["Arabic", "English"]
+      }
+    }
   }
-}
+  </script>
 
-function handleSubmit(event) {
-  event.preventDefault();
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Tajawal:wght@300;400;500;700;800&display=swap"
+    rel="stylesheet">
 
-  const contactForm = document.getElementById('contactForm');
-  const successMessage = document.getElementById('successMessage');
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
 
-  // Collect form data
-  const firstName = document.getElementById('firstName').value.trim();
-  const lastName = document.getElementById('lastName').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const subject = document.getElementById('subject').value;
-  const message = document.getElementById('message').value.trim();
+<body>
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="logo-container">
+      <a href="home.html" class="logo" title="Khalid Al-Mutlaq Home">KM</a>
 
-  // Prepare payload
-  const payload = {
-    first_name: firstName,
-    last_name: lastName,
-    email: email,
-    phone: phone,
-    subject: subject,
-    message: message,
-    to: "kurdi313@gmail.com" // Change this if needed
-  };
+      <!-- Main Horizontal Navigation -->
+      <nav class="main-nav">
+        <div class="nav-item"><a href="home.html" data-en="Home" data-ar="الرئيسية">Home</a></div>
+        <div class="nav-item"><a href="about.html" data-en="About" data-ar="حول">About</a></div>
+        <div class="nav-item"><a href="exhibitions.html" data-en="Exhibitions" data-ar="المعارض">Exhibitions</a></div>
+        <div class="nav-item"><a href="media.html" data-en="Media" data-ar="الإعلام">Media</a></div>
+        <div class="nav-item"><a href="contact.html" class="active" data-en="Contact" data-ar="اتصل">Contact</a></div>
+      </nav>
+    </div>
 
-  // Send POST request to API
-  fetch('https://xvonix.com/api/contact', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  })
-    .then(response => {
-      if (!response.ok) throw new Error('Network response was not ok');
-      return response.json();
-    })
-    .then(data => {
-      // Show success message
-      if (successMessage) {
-        successMessage.classList.add('show');
-      }
-      if (contactForm) {
-        contactForm.reset();
-      }
-      setTimeout(() => {
-        if (successMessage) {
-          successMessage.classList.remove('show');
-        }
-      }, 5000);
-      if (successMessage) {
-        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    })
-    .catch(error => {
-      alert('There was an error sending your message. Please try again later.');
-      console.error('Contact form error:', error);
-    });
-}
+    <!-- Top Right Controls -->
+    <div class="top-controls">
+      <div class="search-box">
+        <input type="text" placeholder="Search artworks..." id="searchInput" aria-label="Search artworks"
+          data-en-placeholder="Search artworks..." data-ar-placeholder="البحث في الأعمال الفنية...">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </div>
+
+      <div class="view-toggle" onclick="toggleView()" title="Toggle artwork grid view" aria-label="Toggle grid view">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+      </div>
+
+      <div class="language-switch">
+        <button class="lang-btn active" onclick="switchLanguage('en')" data-lang="en"
+          aria-label="Switch to English">EN</button>
+        <button class="lang-btn" onclick="switchLanguage('ar')" data-lang="ar"
+          aria-label="التبديل إلى العربية">ع</button>
+      </div>
+
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open mobile menu">☰</button>
+    </div>
+  </header>
+
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileMenu()"></div>
+
+  <!-- Mobile Navigation Sidebar -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+      <a href="home.html" class="logo">KM</a>
+      <button class="mobile-nav-close" onclick="closeMobileMenu()">×</button>
+    </div>
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-item">
+        <a href="home.html" onclick="closeMobileMenu()" data-en="Home" data-ar="الرئيسية">Home</a>
+      </div>
+      <div class="mobile-nav-item">
+        <a href="about.html" onclick="closeMobileMenu()" data-en="About" data-ar="حول">About</a>
+      </div>
+      <div class="mobile-nav-item">
+        <a href="exhibitions.html" onclick="closeMobileMenu()" data-en="Exhibitions" data-ar="المعارض">Exhibitions</a>
+      </div>
+      <div class="mobile-nav-item">
+        <a href="media.html" onclick="closeMobileMenu()" data-en="Media" data-ar="الإعلام">Media</a>
+      </div>
+      <div class="mobile-nav-item">
+        <a href="contact.html" class="active" onclick="closeMobileMenu()" data-en="Contact" data-ar="اتصل">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <h1 data-en="Get in Touch" data-ar="تواصل معنا">Get in Touch</h1>
+      <p data-en="Whether you're interested in commissioning a piece, collaborating on a project, or simply want to learn more about Arabic calligraphy, I'd love to hear from you"
+        data-ar="سواء كنت مهتماً بتكليف قطعة فنية أو التعاون في مشروع أو ببساطة تريد معرفة المزيد عن الخط العربي، يسعدني أن أسمع منك">
+        Whether you're interested in commissioning a piece, collaborating on a project, or simply want to learn more
+        about Arabic calligraphy, I'd love to hear from you</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h2 data-en="Let's Connect" data-ar="دعنا نتواصل">Let's Connect</h2>
+          <p data-en="I'm always excited to discuss new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through any of the channels below."
+            data-ar="أنا دائماً متحمس لمناقشة مشاريع جديدة أو أفكار إبداعية أو فرص لكوني جزءاً من رؤيتك. لا تتردد في التواصل من خلال أي من القنوات أدناه.">
+            I'm always excited to discuss new projects, creative ideas, or opportunities to be part of your vision. Feel
+            free to reach out through any of the channels below.</p>
+
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h3 data-en="Location" data-ar="الموقع">Location</h3>
+              <p data-en="Riyadh-Kingdom of Saudi Arabia" data-ar="الرياض - المملكة العربية السعودية">Riyadh<br>Kingdom
+                of Saudi Arabia</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h3 data-en="Email" data-ar="البريد الإلكتروني">Email</h3>
+              <p data-en="km.almutlaq07@gmail.com For inquiries and collaborations"
+                data-ar="km.almutlaq07@gmail.com للاستفسارات و التعاون"
+                collaborations</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div class="contact-details">
+              <h3 data-en="Phone" data-ar="الهاتف">Phone</h3>
+              <p data-en="+00966552020187 Available for professional inquiries"
+                data-ar="00966552020187+متاح للاستفسارات المهنية"
+                inquiries</p>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-link" title="Instagram">📷</a>
+            <a href="#" class="social-link" title="Twitter">🐦</a>
+            <a href="#" class="social-link" title="LinkedIn">💼</a>
+            <a href="#" class="social-link" title="Facebook">👥</a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <h2 data-en="Send a Message" data-ar="أرسل رسالة">Send a Message</h2>
+
+          <div class="success-message" id="successMessage"
+            data-en="✓ Thank you for your message! I'll get back to you soon."
+            data-ar="✓ شكراً لرسالتك! سأتواصل معك قريباً.">
+            ✓ Thank you for your message! I'll get back to you soon.
+          </div>
+
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="firstName" data-en="First Name *" data-ar="الاسم الأول *">First Name
+                  *</label>
+                <input type="text" id="firstName" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="lastName" data-en="Last Name *" data-ar="الاسم الأخير *">Last Name
+                  *</label>
+                <input type="text" id="lastName" class="form-input" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="email" data-en="Email *" data-ar="البريد الإلكتروني *">Email *</label>
+                <input type="email" id="email" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="phone" data-en="Phone" data-ar="الهاتف">Phone</label>
+                <input type="tel" id="phone" class="form-input">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="subject" data-en="Subject *" data-ar="الموضوع *">Subject *</label>
+              <select id="subject" class="form-select" required>
+                <option value="" data-en="Select a subject" data-ar="اختر موضوعاً">Select a subject</option>
+                <option value="commission" data-en="Commission Request" data-ar="طلب تكليف">Commission Request</option>
+                <option value="exhibition" data-en="Exhibition Inquiry" data-ar="استفسار عن معرض">Exhibition Inquiry
+                </option>
+                <option value="collaboration" data-en="Collaboration" data-ar="تعاون">Collaboration</option>
+                <option value="workshop" data-en="Workshop/Teaching" data-ar="ورشة عمل/تدريس">Workshop/Teaching</option>
+                <option value="general" data-en="General Inquiry" data-ar="استفسار عام">General Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message" data-en="Message *" data-ar="الرسالة *">Message *</label>
+              <textarea id="message" class="form-textarea" required
+                placeholder="Tell me about your project or inquiry..."
+                data-en-placeholder="Tell me about your project or inquiry..."
+                data-ar-placeholder="أخبرني عن مشروعك أو استفسارك..."></textarea>
+            </div>
+
+            <button type="submit" class="form-submit" data-en="Send Message" data-ar="إرسال الرسالة">Send
+              Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <div class="map-container">
+        <p data-en="📍 Riyadh, Kingdom of Saudi Arabia" data-ar="📍 الرياض، المملكة العربية السعودية">📍 Riyadh, Kingdom
+          of Saudi Arabia</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p data-en="&copy; 2025 Khalid Mohammed Al-Mutlaq — Master of Traditional Arabic Calligraphy"
+        data-ar="&copy; 2025 خالد محمد المطلق — أستاذ الخط العربي التقليدي">&copy; 2025 Khalid Mohammed Al-Mutlaq —
+        Master of Traditional Arabic Calligraphy</p>
+      <p>
+        <a href="https://www.artsy.net/artist/khalid-al-mutlaq" target="_blank">Artsy</a> |
+        <a href="https://arabnews.pk/node/2220561/saudi-arabia" target="_blank">Arab News</a> |
+        <a href="https://www.instagram.com/khaledalmatlaq" target="_blank">Instagram</a>
+        |
+        <a href="https://x.com/khaledalmatlaq" target="_blank">X</a>
+      </p>
+    </footer>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+
+</html>
