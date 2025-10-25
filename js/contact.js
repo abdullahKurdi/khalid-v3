@@ -40,7 +40,7 @@ function handleSubmit(event) {
     phone: phone,
     subject: subject,
     message: message,
-    to: "kurdi313@gmail.com" // Change this if needed
+    to: "km.almutlaq07@gmail.com" // Change this if needed
   };
 
   // Send POST request to API
